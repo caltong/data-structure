@@ -18,5 +18,8 @@ for i in range(list_len):
     elif this_sum < 0:
         this_sum = 0
         temp_left = i + 1
+    elif this_sum == 0 and max_sum == 0:
+        left = temp_left
+        right = i
 
 print(max_sum, list_data[left], list_data[right])
