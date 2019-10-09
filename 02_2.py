@@ -5,10 +5,14 @@ first = list(map(int, first))
 second = second.split()
 second = list(map(int, second))
 
-# todo 
+# todo
 # for i in range(first[0]):
 #     for j in range(second[0]):
 #
+for i in range(first[0]):
+    for j in range(second[0]):
+        temp_result = [first[2*i+1]*second[2*j+1],first[2*i+2]*second[2*j+2]]
+        
 first.append(0)
 first.append(0)
 second.append(0)
