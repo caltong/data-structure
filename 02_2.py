@@ -38,6 +38,8 @@ class LinkedList:
 
 node1 = Node(1, 2)
 node2 = Node(3, 4)
+node3 = Node(5, 6)
 linked_list = LinkedList(node1)
 linked_list.add_node(node2)
+linked_list.add_node(node3)
 print(linked_list.print_link())
