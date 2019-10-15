@@ -1,9 +1,9 @@
-first = input()
-second = input()
-first = first.split()
-first = list(map(int, first))
-second = second.split()
-second = list(map(int, second))
+# first = input()
+# second = input()
+# first = first.split()
+# first = list(map(int, first))
+# second = second.split()
+# second = list(map(int, second))
 
 
 class Node:
@@ -29,7 +29,15 @@ class LinkedList:
     def print_link(self):
         res = []
         current = self.head
+        res.append(current.get_data())
         while current.next is not None:
-            res.append(current.get_data)
             current = current.next
+            res.append(current.get_data())
         return res
+
+
+node1 = Node(1, 2)
+node2 = Node(3, 4)
+linked_list = LinkedList(node1)
+linked_list.add_node(node2)
+print(linked_list.print_link())
