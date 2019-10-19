@@ -15,8 +15,8 @@ for i in range(K):
     line = get_input_line()
     data_list.append(line)
 
-print(M, N, K)
-print(data_list)
+# print(M, N, K)
+# print(data_list)
 
 
 def judge(data_line):
