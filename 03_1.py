@@ -1,7 +1,7 @@
 def build_one_tree():
-    tree_height = int(input())
+    tree_node_number = int(input())
     tree = []
-    for i in range(tree_height):
+    for i in range(tree_node_number):
         str_data = input().split()
         node = [str_data[0]]
         for item in str_data[1:]:
@@ -10,7 +10,7 @@ def build_one_tree():
             else:
                 node.append(None)
         tree.append(node)
-    root = list(range(tree_height))
+    root = list(range(tree_node_number))
     for node in tree:
         for child in node[1:]:
             if child is not None:
