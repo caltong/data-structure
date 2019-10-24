@@ -16,7 +16,6 @@ for i in range(N * 2):
 # print(pre_order)
 # print(in_order)
 
-
 class TreeNode:
     def __init__(self, element, left=None, right=None):
         self.element = element
@@ -34,20 +33,18 @@ def build_tree(pre_o, s1, e1, in_o, s2, e2):
     return root
 
 
-root = build_tree(pre_order, 0, N - 1, in_order, 0, N - 1)
-
-# print(root)
-output = []
-
-
 def print_post_order(tree):
     if tree.left is not None:
         print_post_order(tree.left)
     if tree.right is not None:
         print_post_order(tree.right)
-
     output.append(tree.element)
 
+
+root = build_tree(pre_order, 0, N - 1, in_order, 0, N - 1)
+
+# print(root)
+output = []
 
 print_post_order(root)
 for i in output[:-1]:
