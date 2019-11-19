@@ -29,7 +29,7 @@ heap = [None]  # None代表头 以便index从1开始计算
 for i in range(N):
     heap.append(a.pop(0))
     index = len(heap) - 1
-    while index != 1:
+    while index != 1:  # 当判断根节点的时候退出循环
         parent = get_parent_index(index)
         if heap[parent] > heap[index]:
             tmp = heap[parent]
@@ -39,10 +39,10 @@ for i in range(N):
 
 for i in b:
     index = i
-    while True:
+    while index:  # index为1时 下一次index为0 正好退出循环
+        # if else 为了隔空格输出 并且结尾没有空格
         if index != 1:
             print(heap[index], end=' ')
         else:
             print(heap[index])
-            break
         index = get_parent_index(index)
