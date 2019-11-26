@@ -27,9 +27,51 @@ while True:
                              height=max(first.height, second.height) + 1)
     elements.append(build_tree)
 
+huffman_code = []
 
-def cal_sum(tree):
+
+def generate_huffman_code(tree, code=None):
+    if code is None:
+        code = []
     if tree.element is None:
-        return cal_sum(tree.left) + cal_sum(tree.right)
+        return generate_huffman_code(tree.left, code + [0]), generate_huffman_code(tree.right, code + [1])
+    elif tree.element is not None:
+        return huffman_code.append((tree.element, code))
+
+
+generate_huffman_code(elements[0])
+
+
+def cal_weights_sum(huffman_code):
+    sum = 0
+    for i in huffman_code:
+        weight = weights[i[0]]
+        length = len(i[1])
+        sum += weight * length
+    return sum
+
+
+standard = cal_weights_sum(huffman_code)
+
+
+def is_prefix_code(huffman_code):
+    huffman_code.sort(key=lambda a: len(a[1]))
+    for i in range(len(huffman_code)):
+        for j in huffman_code[i + 1:]:
+            if huffman_code[i][1] == j[1][:len(huffman_code[i][1])]:
+                return False
+    return True
+
+
+M = int(input())
+for i in range(M):
+    student_huffman_code = []
+    for i in range(N):
+        input_str = input().split(' ')
+        key = input_str[0]
+        code = input_str[1]
+        student_huffman_code.append((key, code))
+    if (cal_weights_sum(student_huffman_code) == standard) and (is_prefix_code(student_huffman_code)):
+        print('Yes')
     else:
-        return 
+        print('No')
